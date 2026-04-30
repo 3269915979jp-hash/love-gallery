@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Gallery | Apple Style</title>
+    <title>Love Gallery | Designed for Two</title>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Noto+Sans+SC:wght@300;400;500;700&family=Ma+Shan+Zheng&family=Satisfy&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1276,6 +1276,130 @@
             .gallery-item, .gallery-item:nth-child(n) { grid-column:span 1; aspect-ratio:4/5; border-radius:30px; }
         }
 
+
+        /* ===== v2 refinement: closer to Apple product page, calmer romance ===== */
+        body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+        section.hero::before {
+            content: '私人影像馆';
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 900;
+            padding: 9px 16px;
+            border-radius: 999px;
+            color: rgba(29,29,31,.78);
+            background: rgba(255,255,255,.68);
+            border: 1px solid rgba(0,0,0,.06);
+            box-shadow: 0 12px 38px rgba(0,0,0,.08);
+            backdrop-filter: blur(24px) saturate(1.6);
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: .02em;
+        }
+        .hero .subtitle::after {
+            content: 'A quiet place for every photo, date, letter and promise.';
+            display: block;
+            max-width: 720px;
+            margin: 18px auto 0;
+            color: #86868b;
+            font-size: clamp(.96rem, 1.4vw, 1.15rem);
+            line-height: 1.55;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+        .together-ring::before {
+            content: 'Since 2025.12.13';
+            position: absolute;
+            top: 22px;
+            left: 26px;
+            color: #86868b;
+            font-size: .84rem;
+            font-weight: 800;
+            letter-spacing: .02em;
+        }
+        .together-ring { position: relative; }
+        .together-ring::after {
+            content: '∞';
+            position: absolute;
+            right: 28px;
+            bottom: 18px;
+            color: rgba(255,55,95,.18);
+            font-size: 5.8rem;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -.08em;
+        }
+        .counter-grid, .mini-cards { position: relative; z-index: 2; }
+        .counter-box, .mini-card, .timeline-content, .bday-card, .quote-card, .letter-content {
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s cubic-bezier(.2,.8,.2,1), border-color .35s;
+        }
+        .gallery-masonry { align-items: stretch; }
+        .gallery-item { isolation: isolate; cursor: zoom-in; transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s cubic-bezier(.2,.8,.2,1); }
+        .placeholder-card {
+            cursor: default;
+            background:
+                radial-gradient(circle at 24% 18%, rgba(255,55,95,.22), transparent 28%),
+                radial-gradient(circle at 78% 20%, rgba(0,113,227,.16), transparent 30%),
+                linear-gradient(145deg, #ffffff, #f2f2f6);
+        }
+        .placeholder-art {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: rgba(29,29,31,.1);
+            font-size: clamp(4.5rem, 11vw, 9rem);
+            font-weight: 900;
+            letter-spacing: -.08em;
+        }
+        .placeholder-card .layer {
+            background: linear-gradient(transparent 20%, rgba(255,255,255,.86));
+        }
+        .placeholder-card .layer span {
+            color: #1d1d1f;
+            text-shadow: none;
+        }
+        .letter-section { text-align: center; }
+        .letter-hint { color:#86868b; margin-bottom: 18px; font-weight: 700; letter-spacing:-.02em; }
+        .letter-envelope {
+            width: 120px;
+            height: 120px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 16px;
+            border-radius: 36px;
+            background: #fff;
+            box-shadow: 0 22px 70px rgba(0,0,0,.09);
+            border: 1px solid rgba(0,0,0,.055);
+            cursor: pointer;
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+        }
+        .letter-envelope:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 32px 90px rgba(0,0,0,.13); }
+        footer { padding: 80px 20px; }
+        .heartbeat { letter-spacing: .5em; filter: grayscale(.2); }
+        .music-toggle {
+            right: 22px;
+            bottom: 22px;
+            width: 54px;
+            height: 54px;
+            font-size: 1rem;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
+        }
+        @media (max-width: 700px) {
+            section.hero::before { top: 12px; font-size: .76rem; padding: 8px 13px; }
+            .date-badges { margin-top: 28px; }
+            .counter-box { border-radius: 22px; padding: 20px 10px; }
+            .counter-box .num { font-size: 2.18rem; }
+            .timeline-block .timeline-content, .timeline-block:nth-child(even) .timeline-content { padding: 28px 24px; border-radius: 28px; }
+            .timeline-title { font-size: 1.6rem; }
+            .bday-card { padding: 36px 22px; border-radius: 30px; }
+            .quote-card { border-radius: 30px; }
+            .letter-envelope { width: 104px; height: 104px; border-radius: 30px; }
+        }
+
     </style>
 </head>
 <body>
@@ -1473,7 +1597,7 @@
             <div class="line"></div>
         </div>
         <div class="letter-envelope" onclick="toggleLetter()">💌</div>
-        <p style="color: rgba(255,200,220,0.4); margin-bottom: 10px;">点击信封看看写了什么</p>
+        <p class="letter-hint">点击信封看看写了什么</p>
         <div class="letter-content" id="letter-content">
             <p>致我最爱的人：</p>
             <p>我们之间的缘分就像是上天赐予的恩典，第二次遇见就宛如知己，兴趣、口味、观点都不谋而合。</p>
@@ -1570,29 +1694,34 @@
             setTimeout(() => {
                 const loader = document.getElementById('loader');
                 if (loader) loader.classList.add('hidden');
-            }, 2800);
+            }, 850);
         });
         setTimeout(() => {
             const loader = document.getElementById('loader');
             if (loader) loader.classList.add('hidden');
-        }, 5000);
+        }, 1800);
 
         // ==================== Gallery ====================
         let photos = [];
         let currentPhoto = 0;
 
         const gallery = document.getElementById('gallery');
-        const fallbackSvg = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 533%22><rect fill=%22%231a0a20%22 width=%22400%22 height=%22533%22/><text x=%22200%22 y=%22270%22 text-anchor=%22middle%22 fill=%22%23ffb4c8%22 font-size=%2240%22>📷</text></svg>";
+        const fallbackSvg = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 533%22><rect fill=%22%23f5f5f7%22 width=%22400%22 height=%22533%22/><circle cx=%22200%22 cy=%22220%22 r=%2264%22 fill=%22%23ffffff%22/><text x=%22200%22 y=%22238%22 text-anchor=%22middle%22 fill=%22%231d1d1f%22 font-size=%2256%22>♡</text><text x=%22200%22 y=%22322%22 text-anchor=%22middle%22 fill=%22%2386868b%22 font-family=%22Arial%22 font-size=%2220%22>Love Gallery</text></svg>";
 
         function renderGallery() {
             gallery.innerHTML = '';
             photos.forEach((p, i) => {
                 const item = document.createElement('div');
-                item.className = 'gallery-item';
-                item.innerHTML = `
-                    <img src="${p.src}" alt="照片${i+1}" onerror="this.src='${fallbackSvg}'">
-                    <div class="layer"><span>${p.cap || '我们的回忆 💕'}</span></div>
-                    <div class="corner">💕</div>
+                item.className = 'gallery-item' + (p.placeholder ? ' placeholder-card' : '');
+                item.innerHTML = p.placeholder ? `
+                    <div class="placeholder-art">
+                        <span>${p.mark}</span>
+                    </div>
+                    <div class="layer"><span>${p.cap}</span></div>
+                ` : `
+                    <img src="${p.src}" alt="照片${i+1}" loading="lazy" onerror="this.src='${fallbackSvg}'">
+                    <div class="layer"><span>${p.cap || '我们的回忆'}</span></div>
+                    <div class="corner">♡</div>
                 `;
                 item.onclick = () => openLB(i);
                 gallery.appendChild(item);
@@ -1601,12 +1730,12 @@
 
         function getFallbackPhotos() {
             return [
-                { src: 'photos/photo1.jpg', cap: '最初的心动 💓' },
-                { src: 'photos/photo2.jpg', cap: '把你放进我的世界里 ✨' },
-                { src: 'photos/photo3.jpg', cap: '一起走过的日子 🌷' },
-                { src: 'photos/photo4.jpg', cap: '想和你有很多以后 💞' },
-                { src: 'photos/photo5.jpg', cap: '甜蜜时光 💕' },
-                { src: 'photos/photo6.jpg', cap: '在一起 💑' }
+                { placeholder: true, mark: '01', cap: '第一张照片，留给最初的心动。' },
+                { placeholder: true, mark: '02', cap: '把你放进我的世界里。' },
+                { placeholder: true, mark: '03', cap: '一起走过的日子。' },
+                { placeholder: true, mark: '04', cap: '想和你有很多以后。' },
+                { placeholder: true, mark: '05', cap: '平凡日子里的小确幸。' },
+                { placeholder: true, mark: '06', cap: '等待上传新的回忆。' }
             ];
         }
 
@@ -1637,7 +1766,7 @@
         // ==================== Lightbox ====================
         function openLB(idx) {
             currentPhoto = idx;
-            document.getElementById('lb-img').src = photos[idx].src;
+            document.getElementById('lb-img').src = photos[idx].placeholder ? fallbackSvg : photos[idx].src;
             document.getElementById('lightbox').classList.add('show');
             launchConfetti();
         }
@@ -1646,7 +1775,7 @@
 
         function lbNav(dir) {
             currentPhoto = (currentPhoto + dir + photos.length) % photos.length;
-            document.getElementById('lb-img').src = photos[currentPhoto].src;
+            document.getElementById('lb-img').src = photos[currentPhoto].placeholder ? fallbackSvg : photos[currentPhoto].src;
         }
 
         document.getElementById('lightbox').addEventListener('click', e => {
