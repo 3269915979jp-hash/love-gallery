@@ -83,7 +83,7 @@
     const META_PATH = 'photos.json';
     const PHOTO_DIR = 'photos/';
 
-    const ADMIN_PASSWORD = '2005109';
+    const ADMIN_PASSWORDS = ['2005109', '20051009'];
     let TOKEN = localStorage.getItem('lg_token') || '';
     let metaSha = ''; // photos.json 的 SHA（更新时需要）
 
@@ -143,10 +143,11 @@
 
     passwordBtn.onclick = () => {
       const password = passwordInput.value.trim();
-      if (password !== ADMIN_PASSWORD) {
+      if (!ADMIN_PASSWORDS.includes(password)) {
         passwordStatus.textContent = '密码不对';
         return;
       }
+      passwordStatus.textContent = '密码正确，正在进入...';
       sessionStorage.setItem('lg_admin_unlocked', '1');
       enterAfterPassword();
     };
