@@ -31,7 +31,7 @@
   <div class="card" id="password-card">
     <div class="lock-icon">🔐</div>
     <h3>输入后台密码</h3>
-    <div class="muted" style="margin-top:8px">默认密码：5201314（后面可以随时改）</div>
+    <div class="muted" style="margin-top:8px">请输入管理员密码</div>
     <div class="token-box">
       <input id="passwordInput" type="password" placeholder="输入后台密码" />
       <button id="passwordBtn">进入</button>
@@ -83,7 +83,7 @@
     const META_PATH = 'photos.json';
     const PHOTO_DIR = 'photos/';
 
-    const ADMIN_PASSWORD = '5201314';
+    const ADMIN_PASSWORD = '2005109';
     let TOKEN = localStorage.getItem('lg_token') || '';
     let metaSha = ''; // photos.json 的 SHA（更新时需要）
 
