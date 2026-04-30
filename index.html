@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Gallery | 王浩 & 蔡君婷</title>
+    <title>Love Gallery | Apple Style</title>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Noto+Sans+SC:wght@300;400;500;700&family=Ma+Shan+Zheng&family=Satisfy&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -993,237 +993,287 @@
         }
 
 
-        /* ===== Premium redesign override: cinematic, restrained, high-end ===== */
+
+        /* ===== Apple-style redesign override: clean, bright, editorial ===== */
         :root {
-            --pink: #d7a6b8;
-            --pink-light: #f3dbe5;
-            --pink-dark: #9f6279;
-            --gold: #c8aa6e;
-            --purple: #4a3658;
-            --cream: #f7efe7;
-            --ink: #0b0b12;
-            --glass: rgba(255,255,255,0.055);
-            --line-soft: rgba(255,255,255,0.12);
+            --pink: #ff375f;
+            --pink-light: #ff8fab;
+            --pink-dark: #bf3455;
+            --gold: #a06a2b;
+            --purple: #6e5ce6;
+            --cream: #1d1d1f;
+            --ink: #1d1d1f;
+            --glass: rgba(255,255,255,0.82);
+            --line-soft: rgba(0,0,0,0.08);
         }
 
+        html { background:#f5f5f7; }
         body {
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-            background:
-                radial-gradient(circle at 15% 10%, rgba(106,74,96,.28), transparent 32%),
-                radial-gradient(circle at 88% 18%, rgba(200,170,110,.12), transparent 30%),
-                linear-gradient(145deg, #08070d 0%, #11101a 48%, #07070c 100%);
-            color: var(--cream);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Noto Sans SC', sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            letter-spacing: -0.018em;
         }
-
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            pointer-events: none;
             z-index: 0;
+            pointer-events: none;
             background:
-                linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-            background-size: 72px 72px;
-            mask-image: radial-gradient(circle at center, black, transparent 78%);
+                radial-gradient(circle at 50% 0%, rgba(255,255,255,1), transparent 34%),
+                radial-gradient(circle at 18% 22%, rgba(255,55,95,.12), transparent 25%),
+                radial-gradient(circle at 86% 18%, rgba(110,92,230,.12), transparent 26%);
         }
 
-        .star { opacity: .34; animation-duration: 5s; }
-        .shooting-star { width: 90px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent); }
-        .loader { background: #08070d; }
-        .loader-ring { border-color: rgba(255,255,255,.08); border-top-color: var(--gold); }
-        .loader-ring::after { content: '♡'; color: var(--pink-light); font-size: 3rem; }
-        .loader-text { letter-spacing: .08em; color: var(--cream); opacity: .82; }
+        .stars-container, #shooting-stars, .shooting-star, .star, .confetti-container { display:none !important; }
+        .loader { background:#f5f5f7; color:#1d1d1f; }
+        .loader-ring { border-color: rgba(0,0,0,.08); border-top-color:#1d1d1f; }
+        .loader-ring::after { content:'♡'; color:#1d1d1f; }
+        .loader-text { color:#1d1d1f; font-family:-apple-system,BlinkMacSystemFont,'Noto Sans SC',sans-serif; font-weight:700; letter-spacing:-.03em; }
+        .loader-dots span { background:#1d1d1f; }
 
-        .nav-dots { right: 28px; gap: 16px; }
-        .nav-dot { width: 9px; height: 9px; border-color: rgba(255,255,255,.45); opacity: .38; }
-        .nav-dot.active { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 22px rgba(200,170,110,.45); }
-        .nav-dot::after { background: rgba(16,15,22,.86); border: 1px solid var(--line-soft); backdrop-filter: blur(18px); }
+        .nav-dots {
+            right: 26px;
+            gap: 14px;
+            padding: 12px 9px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.7);
+            border: 1px solid rgba(0,0,0,.06);
+            box-shadow: 0 12px 40px rgba(0,0,0,.08);
+            backdrop-filter: blur(22px);
+        }
+        .nav-dot { width:8px; height:8px; border:0; background:rgba(0,0,0,.22); opacity:1; }
+        .nav-dot.active { background:#1d1d1f; box-shadow:none; }
+        .nav-dot::after {
+            background: rgba(255,255,255,.92);
+            color:#1d1d1f;
+            border:1px solid rgba(0,0,0,.08);
+            box-shadow: 0 10px 28px rgba(0,0,0,.12);
+            backdrop-filter: blur(20px);
+        }
 
         section.hero {
-            max-width: none;
+            max-width: 1260px;
             min-height: 100vh;
-            padding: 88px 24px 72px;
+            padding: 92px 24px 72px;
         }
         .hero-bg {
             background:
-                radial-gradient(ellipse at 50% 18%, rgba(215,166,184,.13), transparent 42%),
-                radial-gradient(ellipse at 50% 70%, rgba(200,170,110,.09), transparent 44%);
+                radial-gradient(circle at 50% 18%, rgba(255,255,255,.95), transparent 42%),
+                radial-gradient(circle at 28% 42%, rgba(255,55,95,.10), transparent 28%),
+                radial-gradient(circle at 74% 38%, rgba(0,113,227,.10), transparent 30%);
         }
-        .date-badges { gap: 12px; margin-bottom: 34px; }
+        .date-badges { order: 2; gap:12px; margin:22px 0 38px; }
         .date-badge {
-            background: rgba(255,255,255,.045);
-            border: 1px solid rgba(255,255,255,.11);
+            background: rgba(255,255,255,.72);
+            border: 1px solid rgba(0,0,0,.06);
             border-radius: 999px;
-            padding: 11px 18px;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+            padding: 10px 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.06);
+            backdrop-filter: blur(24px);
         }
+        .date-badge:hover { transform: translateY(-2px); box-shadow:0 12px 38px rgba(0,0,0,.08); }
         .date-badge .icon { display:none; }
-        .date-badge .label { color: rgba(247,239,231,.48); letter-spacing: .22em; }
-        .date-badge .value { color: var(--cream); font-size: .95rem; }
+        .date-badge .label { color:#86868b; font-size:.68rem; letter-spacing:.08em; }
+        .date-badge .value { color:#1d1d1f; font-weight:700; font-size:.95rem; }
 
-        .hero-heart {
-            font-size: 3rem;
-            margin-bottom: 18px;
-            filter: none;
-            animation: none;
-            color: var(--pink-light);
-            opacity: .9;
-        }
-        .hero-heart::before, .hero-heart::after { display:none; }
+        .hero-heart { display:none; }
         .hero h1 {
-            font-family: 'Satisfy', 'ZCOOL XiaoWei', cursive;
-            font-size: clamp(4.2rem, 12vw, 8.5rem);
-            font-weight: 400;
-            line-height: .86;
-            letter-spacing: .015em;
-            background: linear-gradient(135deg, #fffaf5 0%, #e8c7d2 46%, #b9935d 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            margin-bottom: 18px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Noto Sans SC', sans-serif;
+            font-size: clamp(4.6rem, 13vw, 10.5rem);
+            line-height: .88;
+            font-weight: 800;
+            letter-spacing: -0.075em;
+            margin: 0 0 18px;
+            background: linear-gradient(180deg, #1d1d1f 0%, #47474d 100%);
+            -webkit-background-clip:text;
+            background-clip:text;
         }
         .hero .subtitle {
-            font-family: 'Noto Sans SC', sans-serif;
-            font-size: clamp(1rem, 2.6vw, 1.55rem);
-            color: rgba(247,239,231,.62);
-            letter-spacing: .42em;
-            margin-bottom: 48px;
+            font-family:-apple-system,BlinkMacSystemFont,'Noto Sans SC',sans-serif;
+            font-size: clamp(1.35rem, 3vw, 2.25rem);
+            line-height: 1.18;
+            font-weight: 700;
+            letter-spacing: -0.045em;
+            color:#6e6e73;
+            margin-bottom: 44px;
         }
 
         .together-ring {
-            width: 238px;
-            height: 238px;
-            margin-bottom: 36px;
-            padding: 14px;
-            border-radius: 50%;
-            background: rgba(255,255,255,.025);
-            border: 1px solid rgba(255,255,255,.09);
-            box-shadow: 0 30px 90px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.06);
+            width: min(520px, 86vw);
+            height: auto;
+            aspect-ratio: 1 / .62;
+            border-radius: 42px;
+            margin-bottom: 18px;
+            padding: 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f4f4f7 100%);
+            border: 1px solid rgba(0,0,0,.055);
+            box-shadow: 0 30px 90px rgba(0,0,0,.10);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
         }
-        .together-ring circle { stroke-width: 5; }
-        .together-ring .bg { stroke: rgba(255,255,255,.08); }
-        .together-ring .progress { filter: drop-shadow(0 0 8px rgba(200,170,110,.34)); }
-        .together-ring .ring-days { color: var(--cream); font-size: 3.65rem; }
-        .together-ring .ring-label { color: rgba(247,239,231,.44); letter-spacing: .18em; text-transform: uppercase; }
+        .together-ring svg { display:none; }
+        .together-ring .ring-center { position: static; transform:none; }
+        .together-ring .ring-days {
+            font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
+            color:#1d1d1f;
+            font-size: clamp(5.2rem, 16vw, 8.4rem);
+            font-weight: 800;
+            letter-spacing: -.07em;
+        }
+        .together-ring .ring-label { color:#86868b; font-size:.92rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
 
         .counter-grid {
-            max-width: 720px;
-            gap: 12px;
+            max-width: 940px;
+            gap: 14px;
+            margin: 26px 0 16px;
         }
         .counter-box, .mini-card, .timeline-content, .bday-card, .quote-card, .birthday-wrapper, .letter-content {
-            background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.028));
-            border: 1px solid rgba(255,255,255,.105);
-            box-shadow: 0 22px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.07);
+            background: #fff;
+            border: 1px solid rgba(0,0,0,.055);
+            box-shadow: 0 18px 60px rgba(0,0,0,.08);
+            backdrop-filter:none;
         }
-        .counter-box { border-radius: 18px; padding: 18px 12px; }
-        .counter-box:hover, .mini-card:hover { transform: translateY(-4px); border-color: rgba(200,170,110,.34); }
-        .counter-box .num { color: var(--cream); font-size: 2.25rem; }
-        .counter-box .label, .mini-card .label { color: rgba(247,239,231,.42); letter-spacing: .18em; }
-        .mini-cards { max-width: 760px; gap: 12px; }
-        .mini-card { border-radius: 18px; }
-        .mini-card .icon { font-size: 1.35rem; opacity: .76; }
-        .mini-card .value { color: var(--pink-light); }
+        .counter-box { border-radius: 28px; padding: 24px 16px; }
+        .counter-box:hover, .mini-card:hover { transform: translateY(-4px); border-color:rgba(0,0,0,.08); box-shadow:0 26px 70px rgba(0,0,0,.11); }
+        .counter-box .num { color:#1d1d1f; font-size:2.6rem; font-weight:800; letter-spacing:-.06em; }
+        .counter-box .label, .mini-card .label { color:#86868b; letter-spacing:.06em; font-weight:700; }
+        .mini-cards { max-width: 940px; gap:14px; }
+        .mini-card { border-radius:28px; padding:22px; }
+        .mini-card .icon { font-size:1.35rem; }
+        .mini-card .value { color:#1d1d1f; font-weight:800; letter-spacing:-.035em; }
+        .scroll-hint { display:none; }
 
         section:not(.hero) {
-            max-width: 1180px;
+            max-width: 1260px;
             padding: 118px 24px;
         }
-        .section-header { margin-bottom: 54px; }
+        .section-header { margin-bottom: 48px; }
         .section-header h2 {
-            font-family: 'ZCOOL XiaoWei', serif;
-            font-size: clamp(2.15rem, 4.2vw, 3.35rem);
-            color: var(--cream);
-            font-weight: 400;
-            letter-spacing: .08em;
+            font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans SC',sans-serif;
+            color:#1d1d1f;
+            font-size: clamp(3rem, 7vw, 6.2rem);
+            line-height:.95;
+            font-weight:800;
+            letter-spacing:-.07em;
+            margin-bottom:18px;
         }
-        .section-header .line {
-            width: 92px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(200,170,110,.9), transparent);
+        .section-header .line { display:none; }
+        .section-header .sub {
+            color:#6e6e73;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight:700;
+            letter-spacing:-.035em;
+            margin-top:0;
         }
-        .section-header .sub { color: rgba(247,239,231,.45); letter-spacing: .18em; }
 
         .gallery-masonry {
-            grid-template-columns: repeat(3, 1fr);
+            display:grid;
+            grid-template-columns: repeat(12, 1fr);
             gap: 18px;
         }
         .gallery-item {
-            border-radius: 28px;
-            aspect-ratio: 4/5;
-            border: 1px solid rgba(255,255,255,.1);
-            box-shadow: 0 24px 75px rgba(0,0,0,.26);
-            background: rgba(255,255,255,.035);
+            border-radius: 36px;
+            aspect-ratio: 1 / 1;
+            border: 1px solid rgba(0,0,0,.055);
+            box-shadow: 0 22px 70px rgba(0,0,0,.10);
+            background:#fff;
+            overflow:hidden;
         }
-        .gallery-item:nth-child(3n+2) { transform: translateY(34px); }
-        .gallery-item:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 36px 90px rgba(0,0,0,.42); }
-        .gallery-item:nth-child(3n+2):hover { transform: translateY(24px) scale(1.01); }
-        .gallery-item img { filter: saturate(.88) contrast(1.04); }
-        .gallery-item:hover img { transform: scale(1.055); filter: saturate(1) contrast(1.04); }
+        .gallery-item:nth-child(6n+1) { grid-column: span 7; aspect-ratio: 16/10; }
+        .gallery-item:nth-child(6n+2) { grid-column: span 5; aspect-ratio: 1/1; transform:none; }
+        .gallery-item:nth-child(6n+3), .gallery-item:nth-child(6n+4), .gallery-item:nth-child(6n+5) { grid-column: span 4; }
+        .gallery-item:nth-child(6n+6) { grid-column: span 12; aspect-ratio: 16/7; }
+        .gallery-item:hover, .gallery-item:nth-child(3n+2):hover { transform: translateY(-6px); box-shadow:0 32px 90px rgba(0,0,0,.14); }
+        .gallery-item img { filter:none; transform:none; }
+        .gallery-item:hover img { transform:scale(1.035); filter:none; }
         .gallery-item .layer {
-            opacity: 1;
-            padding: 84px 24px 22px;
-            background: linear-gradient(transparent, rgba(5,5,10,.78));
+            opacity:1;
+            padding: 90px 28px 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,.52));
         }
-        .gallery-item .layer span { color: rgba(247,239,231,.82); letter-spacing: .04em; }
-        .gallery-item .corner {
-            opacity: 1;
-            border-color: rgba(255,255,255,.22);
-            background: rgba(0,0,0,.18);
-            backdrop-filter: blur(12px);
+        .gallery-item .layer span { color:white; font-size:1rem; font-weight:700; letter-spacing:-.015em; text-shadow:0 1px 12px rgba(0,0,0,.25); }
+        .gallery-item .corner { display:none; }
+
+        .timeline { padding: 20px 0 0; }
+        .timeline::before { display:none; }
+        .timeline-block, .timeline-block:nth-child(even) { display:block; margin-bottom:18px; text-align:left; }
+        .timeline-block .timeline-content, .timeline-block:nth-child(even) .timeline-content {
+            width:100%;
+            margin:0;
+            border-radius:34px;
+            padding:36px;
         }
+        .timeline-content:hover { transform:translateY(-4px); border-color:rgba(0,0,0,.08); box-shadow:0 28px 75px rgba(0,0,0,.11); }
+        .timeline-dot { display:none; }
+        .timeline-date { color:#86868b; font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.95rem; font-weight:800; letter-spacing:.04em; }
+        .timeline-title { color:#1d1d1f; font-family:-apple-system,BlinkMacSystemFont,'Noto Sans SC',sans-serif; font-size:2rem; font-weight:800; letter-spacing:-.055em; }
+        .timeline-text { color:#6e6e73; font-size:1.05rem; line-height:1.75; font-weight:600; }
+        .timeline-emoji { display:none; }
 
-        .timeline::before { background: linear-gradient(to bottom, transparent, rgba(200,170,110,.5), rgba(215,166,184,.35), transparent); }
-        .timeline-content { border-radius: 28px; }
-        .timeline-content:hover { border-color: rgba(200,170,110,.34); box-shadow: 0 28px 80px rgba(0,0,0,.28); }
-        .timeline-dot { background: var(--gold); box-shadow: 0 0 30px rgba(200,170,110,.45); }
-        .timeline-date { color: var(--gold); }
-        .timeline-title { font-family: 'ZCOOL XiaoWei', serif; color: var(--cream); }
-        .timeline-text { color: rgba(247,239,231,.58); }
+        .birthday-wrapper { border-radius:40px; padding:18px; background:transparent; border:0; box-shadow:none; }
+        .birthday-wrapper::before, .bday-card::before { display:none; }
+        .birthday-grid { gap:18px; }
+        .bday-card { border-radius:36px; padding:48px 32px; }
+        .bday-card:hover { transform:translateY(-4px); box-shadow:0 30px 80px rgba(0,0,0,.11); border-color:rgba(0,0,0,.08); }
+        .bday-avatar { font-size:4.8rem; }
+        .bday-name { color:#1d1d1f; font-family:-apple-system,BlinkMacSystemFont,'Noto Sans SC',sans-serif; font-weight:800; letter-spacing:-.05em; }
+        .bday-solar { color:#1d1d1f; font-weight:800; }
+        .bday-lunar { color:#86868b; }
+        .bday-count { color:#ff375f; font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-weight:800; letter-spacing:-.06em; }
+        .bday-count span { color:#86868b; }
 
-        .birthday-wrapper { border-radius: 34px; }
-        .bday-card { border-radius: 30px; }
-        .bday-card::before { opacity: .35; }
-        .bday-card:hover { box-shadow: 0 32px 90px rgba(0,0,0,.35); border-color: rgba(200,170,110,.34); }
-        .bday-name { font-family: 'ZCOOL XiaoWei', serif; color: var(--cream); }
-        .bday-solar, .bday-count { color: var(--gold); }
-        .bday-lunar { color: rgba(247,239,231,.45); }
-
-        .letter-envelope { filter: grayscale(.15) saturate(.75); }
-        .quote-card { border-radius: 34px; }
-        .quote-main { color: rgba(247,239,231,.88); }
-        .quote-author { color: rgba(200,170,110,.78); }
+        .letter-envelope { font-size:5.5rem; filter:none; }
+        .letter-content { border-radius:36px; color:#1d1d1f; line-height:2; }
+        .letter-content p { color:#424245; font-weight:600; }
+        .signature { color:#1d1d1f; font-weight:800; }
+        .quote-card { border-radius:40px; padding:70px min(7vw,70px); }
+        .quote-main { color:#1d1d1f; font-size: clamp(1.55rem, 3.1vw, 2.7rem); line-height:1.25; font-weight:800; letter-spacing:-.055em; }
+        .quote-author { color:#86868b; font-weight:700; }
         .quote-buttons button {
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.12);
-            color: var(--cream);
-            border-radius: 999px;
+            background:#1d1d1f;
+            color:white;
+            border:0;
+            border-radius:999px;
+            font-weight:800;
+            box-shadow:none;
         }
-        .quote-buttons button:hover { background: rgba(200,170,110,.14); transform: translateY(-2px); }
+        .quote-buttons button:hover { background:#000; transform:translateY(-2px); }
 
         footer {
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,.34));
-            border-top: 1px solid rgba(255,255,255,.08);
+            background:#f5f5f7;
+            border-top:1px solid rgba(0,0,0,.06);
+            color:#6e6e73;
         }
-        footer h3 { color: var(--cream); letter-spacing: .16em; }
-        footer p, footer .quote { color: rgba(247,239,231,.48); }
-        .heartbeat { opacity: .55; filter: grayscale(.1) saturate(.7); }
-
-        .lightbox { background: rgba(5,5,8,.94); backdrop-filter: blur(18px); }
-        .lightbox img { border-radius: 24px; box-shadow: 0 36px 120px rgba(0,0,0,.7); }
-        .music-toggle { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); color: var(--cream); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+        footer h3 { color:#1d1d1f; font-weight:800; letter-spacing:-.035em; }
+        footer p, footer .quote { color:#86868b; }
+        .heartbeat { opacity:.5; }
+        .lightbox { background:rgba(245,245,247,.82); backdrop-filter:blur(28px); }
+        .lightbox img { border-radius:34px; box-shadow:0 40px 120px rgba(0,0,0,.24); }
+        .lightbox-close, .lightbox-nav { color:#1d1d1f; }
+        .music-toggle { background:#fff; color:#1d1d1f; border:1px solid rgba(0,0,0,.08); box-shadow:0 18px 55px rgba(0,0,0,.12); }
 
         @media (max-width: 900px) {
             .gallery-masonry { grid-template-columns: repeat(2, 1fr); }
-            .gallery-item:nth-child(3n+2) { transform: none; }
-            .gallery-item:nth-child(3n+2):hover { transform: translateY(-8px) scale(1.01); }
+            .gallery-item, .gallery-item:nth-child(n) { grid-column: span 1; aspect-ratio: 4/5; }
+            .gallery-item:nth-child(6n+1), .gallery-item:nth-child(6n+6) { grid-column: span 2; aspect-ratio:16/10; }
+            .birthday-grid { grid-template-columns:1fr; }
         }
         @media (max-width: 700px) {
-            .hero .subtitle { letter-spacing: .22em; }
-            .together-ring { width: 210px; height: 210px; }
+            .nav-dots { display:none; }
+            section.hero { padding:70px 18px 50px; }
+            .hero h1 { font-size: clamp(4rem, 18vw, 6rem); }
+            .hero .subtitle { font-size:1.22rem; letter-spacing:-.035em; }
+            .together-ring { width:100%; border-radius:32px; }
             .counter-grid { grid-template-columns: repeat(2, 1fr); }
-            .mini-cards { grid-template-columns: 1fr; }
-            .gallery-masonry { grid-template-columns: 1fr; }
-            section:not(.hero) { padding: 88px 18px; }
+            .mini-cards { grid-template-columns:1fr; }
+            section:not(.hero) { padding:86px 18px; }
+            .section-header h2 { font-size: clamp(2.8rem, 14vw, 4rem); }
+            .gallery-masonry { grid-template-columns:1fr; }
+            .gallery-item, .gallery-item:nth-child(n) { grid-column:span 1; aspect-ratio:4/5; border-radius:30px; }
         }
 
     </style>
@@ -1239,7 +1289,7 @@
     <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="loader-ring"></div>
-        <div class="loader-text">Our Love Story</div>
+        <div class="loader-text">Love Gallery</div>
         <div class="loader-dots">
             <span></span><span></span><span></span>
         </div>
@@ -1276,8 +1326,8 @@
         </div>
 
         <div class="hero-heart">💕</div>
-        <h1>Love Gallery</h1>
-        <p class="subtitle">王浩 · 蔡君婷</p>
+        <h1>Love<br>Gallery</h1>
+        <p class="subtitle">王浩与蔡君婷的私人影像馆</p>
 
         <!-- Ring Timer -->
         <div class="together-ring">
@@ -1342,9 +1392,9 @@
     <!-- Photo Gallery -->
     <section id="photos">
         <div class="section-header">
-            <h2>影像收藏</h2>
+            <h2>Shot on Love.</h2>
             <div class="line"></div>
-            <div class="sub">那些被光留下来的瞬间</div>
+            <div class="sub">每一张照片，都是一段被认真保存的时间。</div>
         </div>
         <div class="gallery-masonry" id="gallery"></div>
     </section>
@@ -1352,9 +1402,9 @@
     <!-- Our Story -->
     <section id="story">
         <div class="section-header">
-            <h2>时间线</h2>
+            <h2>Our Timeline.</h2>
             <div class="line"></div>
-            <div class="sub">从相遇开始，慢慢写成我们</div>
+            <div class="sub">从第一次见面，到每一个正在发生的以后。</div>
         </div>
         <div class="timeline">
             <div class="timeline-block">
@@ -1390,9 +1440,9 @@
     <!-- Birthday -->
     <section id="birthday">
         <div class="section-header">
-            <h2>纪念日</h2>
+            <h2>Special Days.</h2>
             <div class="line"></div>
-            <div class="sub">把重要的日子认真记住</div>
+            <div class="sub">重要的人和重要的日子，都值得被放在首页。</div>
         </div>
         <div class="birthday-wrapper">
             <div class="birthday-grid">
@@ -1419,7 +1469,7 @@
     <!-- Love Letter -->
     <section id="letter" class="letter-section">
         <div class="section-header">
-            <h2>悄悄话</h2>
+            <h2>Love Note.</h2>
             <div class="line"></div>
         </div>
         <div class="letter-envelope" onclick="toggleLetter()">💌</div>
@@ -1437,9 +1487,9 @@
     <!-- Quotes -->
     <section id="quotes">
         <div class="section-header">
-            <h2>句子收藏</h2>
+            <h2>Words.</h2>
             <div class="line"></div>
-            <div class="sub">一些想反复读给你的句子</div>
+            <div class="sub">像产品标语一样简单，但只写给你。</div>
         </div>
         <div class="quotes-wrapper">
             <div class="quote-card">
@@ -1457,7 +1507,7 @@
     <footer>
         <div class="heartbeat">💖 💕 💗 💓 💝</div>
         <h3>王浩 · 蔡君婷</h3>
-        <p>愿往后的日子，都温柔而坚定。</p>
+        <p>Designed for two. Built for forever.</p>
         <div class="quote">"世界上只有一个人和我如此契合，那就是你。"</div>
     </footer>
 
